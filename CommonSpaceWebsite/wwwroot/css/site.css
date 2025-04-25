@@ -1,0 +1,86 @@
+body {
+    background-color: #513C2C;
+    width: 1440px;
+    height: 1024px;
+    margin: 0 auto; /* centrerar body */
+
+    font-family: Stylish
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between; /*lägger elementen bredvid varandra, så långt ifrån som möjligt*/
+    align-items: center;
+    position: relative;
+    top: 45px;
+}
+.titlebox {
+    display: flex;
+    text-align: center; /* centrerar texten i boxen */
+    flex-direction: column; /* stackar elemten på varandra */
+
+    border-radius: 30px;
+    background-color: #E6C2AF;
+    width: 315px;
+    height: 68px;
+
+}
+#titledescription {
+    position: relative;
+    bottom: 15px;
+}
+#locationinfo {
+    background-color: #704545;
+    color: white;
+    width: 315px;
+    height: 38px;
+    border-radius: 15px;
+    border: 1px solid black; /* Border color */
+}
+
+.regloginbar {
+    height: 68px;
+    width: 468px;
+    background-color: #704545;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    border: 1px solid black; /* Border color */
+
+    gap: 65px; /* Space between items */
+}
+.btn {
+    width: 165px;
+    height: 38px;
+    border-radius: 38px;
+    background-color: #E6C2AF;
+    font-size: 24px;
+
+    display: flex;
+    text-align: center; /* these 4 lines is for centering text inside the button*/
+    justify-content: center; 
+    align-items: center;
+}
+.containers2 {
+    display: flex;
+    justify-content: space-between; /*lägger elementen bredvid varandra, så långt ifrån som möjligt*/
+    align-items: center;
+    position: relative;
+    top: 223px;
+}
+
+.cleaningcontainer {
+    width: 482px;
+    height: 572px;
+    border-radius: 15px;
+    background-color: #E6C2AF;
+}
+
+.bulletinboardcontainer {
+    width: 639px;
+    height: 572px;
+    border-radius: 15px;
+    background-color: #E6C2AF;
+}
