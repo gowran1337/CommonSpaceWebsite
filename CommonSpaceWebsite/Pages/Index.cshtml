@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Home page";
 }
 <head>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,16 +28,70 @@
 
 <div class="containers2">
 
+	<div class="bulletin-cleaning-section">
+		<p id="bulletinTitle">Bulletin Board</p>
 
-	<div class="bulletinboardcontainer">
+		<div class="bulletinboardcontainer">
 
+		</div>
 	</div>
 
 
-	<div class="cleaningcontainer">
-		<p id="cleaningTitle">Cleaning Schedule</p>
 
+	<div class="bulletin-cleaning-section"> <!--entire container with title-->
+
+		<p id="cleaningTitle">Cleaning Schedule</p> <!--title forcontainer-->
+
+
+		<div class="cleaning-order-shoppinglist-container"> <!---- container for cleaning/shopping/order--->
+
+
+			<div class="orangeHeader">
+				<div class="currentCleaner">
+					<p id="currentCleanerTitle">Current Cleaner</p>				
+				</div>
+			</div>
+
+
+			<div class="taskSection">
+				<p class="cleaningboxTitles" id="tasksTitle">Tasks</p>
+				<div class="cleaningtasks"> <!--container for cleaning tasks (GRAY)-->
+
+					@foreach (var CleaningTask in Model.CleaningTasks)
+					{
+						<div class="cleaningTaskContainer">
+							<input type="checkbox" class="cleaningTaskCheckbox">
+							<p id="cleaningTaskTitle">@CleaningTask.Name</p>
+						</div>
+
+					}
+
+				</div>
+			</div>
+
+			<div class="order-shoppinghalf">  <!--splits big container in half for shopping and order to be on the left side-->
+
+				<div class="orderSection"> <!--order area + its title-->
+					<p class="cleaningboxTitles"> Next Cleaner</p>
+
+					<div class="orderContainer"> <!--GRAY AREA-->
+						@foreach (var User in Model.Users)
+						{
+							<p id="userName">@User.Name</p>
+							
+						}						
+					</div>
+			</div>
+
+			<div class="shoppingListSection">
+					<p class="cleaningboxTitles">Items to buy</p>
+				<div class="shoppinglistContainer">
+					<p>kebab</p>
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 
 
 </div>

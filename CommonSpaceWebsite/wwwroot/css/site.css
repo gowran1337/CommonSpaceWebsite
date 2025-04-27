@@ -68,14 +68,24 @@ body {
     justify-content: space-between; /*lägger elementen bredvid varandra, så långt ifrån som möjligt*/
     align-items: center;
     position: relative;
-    top: 223px;
+    top: 211px;
 }
 
-.cleaningcontainer {
+.cleaning-order-shoppinglist-container {
     width: 482px;
     height: 572px;
     border-radius: 15px;
     background-color: #E6C2AF;
+    display: flex;
+    flex-direction: column;
+    padding: 15px; /* Even padding on all sides */
+    box-sizing: border-box; /* Includes padding in width/height */
+    border: 1px solid black; /* Border color */
+
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-template-rows: auto 1fr 1fr; /* Two equal rows */
+    gap: 10px; /* Space between grid items */
 }
 
 .bulletinboardcontainer {
@@ -84,3 +94,166 @@ body {
     border-radius: 15px;
     background-color: #E6C2AF;
 }
+#cleaningTitle {
+    background-color: #704545;
+    color: white;
+    border-radius: 15px;
+    border: 1px solid black; /* Border color */
+
+    width: 283px;
+    height: 45px;
+    font-size: 36px;
+    text-align: center;
+    
+
+    margin: 0 auto; /* centrerar boxen */
+    position: relative;
+    bottom: 12px;
+    align-items: center;
+    display: flex;
+
+    justify-content:center;
+   
+}
+#bulletinTitle {
+    background-color: #704545;
+    color: white;
+    border-radius: 15px;
+    border: 1px solid black; /* Border color */
+
+    width: 283px;
+    height: 45px;
+    font-size: 36px;
+    text-align: center;
+    margin: 0 auto; /* centrerar boxen */
+    position: relative;
+    bottom: 12px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.bulletin-cleaning-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.cleaningtasks {
+    background-color: #8499B1;
+    border-radius: 15px;
+    width: 238px;
+    height: 444px;
+    padding: 7px; /* Even padding on all sides */
+    margin: 5px;
+
+
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.orderContainer {
+    width: 177px;
+    height: 216px;
+    border-radius: 15px;
+    background-color: #8499B1;
+    margin: 5px;
+}
+.shoppinglistContainer {
+    width: 181px;
+    height: 189px;
+    border-radius: 15px;
+    background-color: #8499B1;
+    margin: 5px; 
+}
+
+.orangeHeader {
+    background-color: #FCA311;
+    height: 63px;
+    min-height: 63px; /*tvingar den att vara 63px även fast stora containern har en fixed storlek*/
+    border-radius: 15px 15px 0 0;
+    border-bottom: 1px solid black; /* Border color */
+
+    margin-left: -15px; /* Matches parent's left padding */
+    margin-right: -15px;
+    margin-top: -15px;
+    grid-column: 1/-1;
+
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+#currentCleanerTitle {
+    background-color: #704545;
+    border-radius: 15px;
+    width: 426px;
+    height: 34px;
+    text-align: center;
+    margin: 0 auto; /* centrerar boxen */
+
+    align-items: center;
+    color: white;
+}
+
+#tasksTitle {
+    font-size: 20px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+}
+.taskSection {
+    grid-column: 2;
+    grid-row: 2/ 4;
+
+}
+.cleaningboxTitles {
+    background-color: #704545;
+    border-radius: 15px;
+    width: 104px;
+    height: 27px;
+    text-align: center;
+    margin: 0 auto; /* centrerar boxen */
+
+    align-items: center;
+    
+    color: white;
+}
+.cleaningTaskContainer {
+    width: 207px;
+    height: 44px;
+    border-radius: 15px;
+    background-color: #FCA311;
+    margin: 10px; /* Even padding on all sides */
+
+
+    gap: 45px; /* Space between grid items */
+    align-items: center;
+    display: flex;
+}
+
+.orderSection {
+    grid-column: 1 /1;
+}
+
+.shoppinglistSection {
+    grid-column: 1;
+    grid-row: 3;
+}
+#cleaningTaskTitle {
+    font-size: 20px;
+    position: relative;
+    top: 8px;
+}
+.cleaningTaskCheckbox {
+    width: 15px;
+    height: 15px;
+    background-color: #E6C2AF;
+    border-radius: 51px;
+    position: relative;
+    left: 15px;
+}
+
+    
+   
+   

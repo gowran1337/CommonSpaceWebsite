@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CommonSpaceWebsite.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class abdi : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CleaningTask",
+                name: "CleaningTasks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -22,11 +22,11 @@ namespace CommonSpaceWebsite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CleaningTask", x => x.Id);
+                    table.PrimaryKey("PK_CleaningTasks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -36,11 +36,11 @@ namespace CommonSpaceWebsite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CleaningWeek",
+                name: "CleaningWeeks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -51,17 +51,17 @@ namespace CommonSpaceWebsite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CleaningWeek", x => x.Id);
+                    table.PrimaryKey("PK_CleaningWeeks", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CleaningWeek_User_CleanerId",
+                        name: "FK_CleaningWeeks_Users_CleanerId",
                         column: x => x.CleanerId,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CleaningWeekTask",
+                name: "CleaningWeekTasks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -73,23 +73,23 @@ namespace CommonSpaceWebsite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CleaningWeekTask", x => x.Id);
+                    table.PrimaryKey("PK_CleaningWeekTasks", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CleaningWeekTask_CleaningTask_TaskId",
+                        name: "FK_CleaningWeekTasks_CleaningTasks_TaskId",
                         column: x => x.TaskId,
-                        principalTable: "CleaningTask",
+                        principalTable: "CleaningTasks",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_CleaningWeekTask_CleaningWeek_WeekId",
+                        name: "FK_CleaningWeekTasks_CleaningWeeks_WeekId",
                         column: x => x.WeekId,
-                        principalTable: "CleaningWeek",
+                        principalTable: "CleaningWeeks",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ShoppingItem",
+                name: "ShoppingItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -101,44 +101,44 @@ namespace CommonSpaceWebsite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ShoppingItem", x => x.Id);
+                    table.PrimaryKey("PK_ShoppingItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ShoppingItem_CleaningWeek_WeekId",
+                        name: "FK_ShoppingItems_CleaningWeeks_WeekId",
                         column: x => x.WeekId,
-                        principalTable: "CleaningWeek",
+                        principalTable: "CleaningWeeks",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ShoppingItem_User_PurchasedById",
+                        name: "FK_ShoppingItems_Users_PurchasedById",
                         column: x => x.PurchasedById,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CleaningWeek_CleanerId",
-                table: "CleaningWeek",
+                name: "IX_CleaningWeeks_CleanerId",
+                table: "CleaningWeeks",
                 column: "CleanerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CleaningWeekTask_TaskId",
-                table: "CleaningWeekTask",
+                name: "IX_CleaningWeekTasks_TaskId",
+                table: "CleaningWeekTasks",
                 column: "TaskId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CleaningWeekTask_WeekId",
-                table: "CleaningWeekTask",
+                name: "IX_CleaningWeekTasks_WeekId",
+                table: "CleaningWeekTasks",
                 column: "WeekId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ShoppingItem_PurchasedById",
-                table: "ShoppingItem",
+                name: "IX_ShoppingItems_PurchasedById",
+                table: "ShoppingItems",
                 column: "PurchasedById");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ShoppingItem_WeekId",
-                table: "ShoppingItem",
+                name: "IX_ShoppingItems_WeekId",
+                table: "ShoppingItems",
                 column: "WeekId");
         }
 
@@ -146,19 +146,19 @@ namespace CommonSpaceWebsite.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CleaningWeekTask");
+                name: "CleaningWeekTasks");
 
             migrationBuilder.DropTable(
-                name: "ShoppingItem");
+                name: "ShoppingItems");
 
             migrationBuilder.DropTable(
-                name: "CleaningTask");
+                name: "CleaningTasks");
 
             migrationBuilder.DropTable(
-                name: "CleaningWeek");
+                name: "CleaningWeeks");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Users");
         }
     }
 }

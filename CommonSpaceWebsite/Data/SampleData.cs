@@ -11,27 +11,27 @@ namespace CommonSpaceWebsite.Data
             context.Database.EnsureCreated();
 
             // Check if database already has data
-            if (context.Users.Any() || context.CleaningTasks.Any())
+            if (context.Users.Any() && context.CleaningTasks.Any())
             {
                 return; // Database already seeded
             }
 
             // Add sample users
-            //var users = new User[]
-            //{
-            //    new User { Name = "John Doe", Password = "password123" },
-            //    new User { Name = "Jane Smith", Password = "letmein" },
-            //    new User { Name = "Bob Johnson", Password = "securepw" }
-            //};
-            //context.Users.AddRange(users);
-            //context.SaveChanges();
+            var users = new User[]
+            {
+                new User { Name = "John", Password = "password123" },
+                new User { Name = "Jane", Password = "letmein" },
+                new User { Name = "Bob", Password = "securepw" }
+            };
+            context.Users.AddRange(users);
+            context.SaveChanges();
 
             // Add sample cleaning tasks
             var tasks = new CleaningTask[]
             {
-                new CleaningTask { Name = "Vacuum hallway", Description = "Vacuum all common area hallways" },
-                new CleaningTask { Name = "Clean kitchen", Description = "Wipe counters and clean appliances" },
-                new CleaningTask { Name = "Take out trash", Description = "Collect all trash from common areas" }
+                new CleaningTask { Name = "Vacuum hallway"},
+                new CleaningTask { Name = "Clean kitchen" },
+                new CleaningTask { Name = "Take out trash" }
             };
             context.CleaningTasks.AddRange(tasks);
             context.SaveChanges();

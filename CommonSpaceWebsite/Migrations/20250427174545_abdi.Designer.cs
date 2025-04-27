@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommonSpaceWebsite.Migrations
 {
     [DbContext(typeof(CommonSpaceDbContext))]
-    [Migration("20250425144240_init")]
-    partial class init
+    [Migration("20250427174545_abdi")]
+    partial class abdi
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace CommonSpaceWebsite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CleaningTask");
+                    b.ToTable("CleaningTasks");
                 });
 
             modelBuilder.Entity("CommonSpaceWebsite.Models.CleaningWeek", b =>
@@ -67,7 +67,7 @@ namespace CommonSpaceWebsite.Migrations
 
                     b.HasIndex("CleanerId");
 
-                    b.ToTable("CleaningWeek");
+                    b.ToTable("CleaningWeeks");
                 });
 
             modelBuilder.Entity("CommonSpaceWebsite.Models.CleaningWeekTask", b =>
@@ -96,7 +96,7 @@ namespace CommonSpaceWebsite.Migrations
 
                     b.HasIndex("WeekId");
 
-                    b.ToTable("CleaningWeekTask");
+                    b.ToTable("CleaningWeekTasks");
                 });
 
             modelBuilder.Entity("CommonSpaceWebsite.Models.ShoppingItem", b =>
@@ -126,7 +126,7 @@ namespace CommonSpaceWebsite.Migrations
 
                     b.HasIndex("WeekId");
 
-                    b.ToTable("ShoppingItem");
+                    b.ToTable("ShoppingItems");
                 });
 
             modelBuilder.Entity("CommonSpaceWebsite.Models.User", b =>
@@ -147,7 +147,7 @@ namespace CommonSpaceWebsite.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("CommonSpaceWebsite.Models.CleaningWeek", b =>
