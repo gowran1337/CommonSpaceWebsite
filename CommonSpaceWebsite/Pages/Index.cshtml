@@ -2,6 +2,9 @@
 @model IndexModel
 @{
 	ViewData["Title"] = "Home page";
+	var firstWeek = Model.CleaningWeeks.FirstOrDefault();
+
+
 }
 <head>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +51,11 @@
 
 			<div class="orangeHeader">
 				<div class="currentCleaner">
-					<p id="currentCleanerTitle">Current Cleaner</p>				
+					<p id="currentcleanertext">Current Cleaner:</p>
+
+
+					<p id="currentcleanerName" >@firstWeek?.Cleaner?.Name</p>	
+					<p id="currentcleanerdates">@firstWeek?.StartDate.ToString("MM/dd") - @firstWeek?.EndDate.ToString("MM/dd")</p>
 				</div>
 			</div>
 
@@ -75,10 +82,12 @@
 					<p class="cleaningboxTitles"> Next Cleaner</p>
 
 					<div class="orderContainer"> <!--GRAY AREA-->
-						@foreach (var week in Model.CleaningWeeks)
+						@foreach (var week in Model.CleaningWeeks.Take(6).Skip(1)) // foreach loop ignoring the first week and only showing 5 items
 						{
-							<p>@week.Cleaner?.Name </p>							//"?" to avoid crash if "cleaner" happends to be null
-							<p>@week.StartDate.ToString("MM/dd") - @week.EndDate.ToString("MM/dd")</p>
+							<div class="orangeorderbox">
+							<p id="nextCleanerName" >@week.Cleaner?.Name </p>							<!----"?" to avoid crash if "cleaner" happends to be null-->
+							<p id="nextCleanerDates">@week.StartDate.ToString("MM/dd") - @week.EndDate.ToString("MM/dd")</p>
+							</div>
 			
 						}						
 					</div>

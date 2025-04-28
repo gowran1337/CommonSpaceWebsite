@@ -56,24 +56,25 @@ namespace CommonSpaceWebsite.Pages
             }
 
             int userIndex = 0; // value equal to the index of the user to assign week to
-            DateTime currentStartDate = startDate;
+            DateTime currentStartDate = startDate; // sets the start date to the current date, getting the current date from the parameter on the get method
 
             while (currentStartDate < endDate) //loop runs until the end date is reached
             {
                 var week = new CleaningWeek
                 {
-                    StartDate = currentStartDate,
+                    StartDate = currentStartDate, 
                     EndDate = currentStartDate.AddDays(6), // Assuming a week is 7 days
                     CleanerId = users[userIndex].Id // Assign the user ID
                 };
 
                 cleaningWeeks.Add(week);
-                userIndex++;
+                userIndex++; // after a week has been created and a user assigned, the index is increased by 1 to assign the next user
 
-                if (userIndex >= users.Count)
+                if (userIndex >= users.Count)  // resets the count if the last user has been reached
                 {
-                    userIndex = 0; // Reset to the first user
+                    userIndex = 0; 
                 }
+
 
                 currentStartDate = currentStartDate.AddDays(7); // Move to the next week
 

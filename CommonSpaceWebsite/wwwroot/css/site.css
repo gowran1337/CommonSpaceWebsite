@@ -153,16 +153,6 @@ body {
 
 }
 
-.orderContainer {
-    width: 177px;
-    height: 216px;
-    border-radius: 15px;
-    background-color: #8499B1;
-    margin: 5px;
-
-    
-    justify-content: center;
-}
 .shoppinglistContainer {
     width: 181px;
     height: 189px;
@@ -188,17 +178,6 @@ body {
     align-items: center; /* Center vertically */
 }
 
-#currentCleanerTitle {
-    background-color: #704545;
-    border-radius: 15px;
-    width: 426px;
-    height: 34px;
-    text-align: center;
-    margin: 0 auto; /* centrerar boxen */
-
-    align-items: center;
-    color: white;
-}
 
 #tasksTitle {
     font-size: 20px;
@@ -210,18 +189,7 @@ body {
     grid-row: 2/ 4;
 
 }
-.cleaningboxTitles {
-    background-color: #704545;
-    border-radius: 15px;
-    width: 104px;
-    height: 27px;
-    text-align: center;
-    margin: 0 auto; /* centrerar boxen */
 
-    align-items: center;
-    
-    color: white;
-}
 .cleaningTaskContainer {
     width: 207px;
     height: 44px;
@@ -256,21 +224,98 @@ body {
     position: relative;
     left: 15px;
 }
+
+.orderContainer {
+    width: 177px;
+    height: 216px;
+    border-radius: 15px;
+    background-color: #8499B1;
+    margin: 5px;
+    justify-content: center;
+    padding: 0.1px;
+    
+}
+
+
 .orangeorderbox {
     background-color: #FCA311;
     border-radius: 15px;
-    width: 135px;
-    height: 34px;
-    
-   
-
+    width: 145px;
+    height: 30px;
+    margin: 12px;
     display: flex;
-    position: relative;
-    
-    align-items: center; /* centers vertically */
-    justify-content: space-between;
-    
+
+
+    gap: 15px; /* Space between grid items */
 }
+
+
+#nextCleanerName {
+    font-size: 20px;
+    position: relative;
+    left: 15px;
+}
+
+#nextCleanerDates {
+    font-size: 12px;
+    position: relative;
+    left: 15px;
+    top: 6px;
+}
+
+    .cleaningboxTitles {
+        background-color: #704545;
+        border-radius: 15px;
+        width: 104px;
+        height: 27px;
+        text-align: center;
+        margin: 0 auto; /* centrerar boxen */
+
+        align-items: center;
+        color: white;
+    }
+.currentCleaner {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center; /* Vertically center the items */
+
+    gap: 35px; /* Space between items */
+
+    height: 100%;
+    border-radius: 15px;
+    width: 426px;
+    height: 34px;
+    margin: 0 auto; /* centrerar boxen */
+
+    background-color: #704545;
+    color: white;
+}
+
+#currentcleanerName {
+    font-size: 32px;
+    position: relative;
+    top: 5px;
+    right: 30px;
+    color: black;
+}
+#currentcleanerdates {
+    color: black;
+    position: relative;
+    top: 7px;
+    right:45px;
+}
+#currentcleanertext {
+    position: relative;
+    top: 7px;
+    right: 35px;
+
+}
+
+
+
+
+
     
    
    
