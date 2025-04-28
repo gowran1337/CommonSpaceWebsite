@@ -159,6 +159,9 @@ body {
     border-radius: 15px;
     background-color: #8499B1;
     margin: 5px;
+
+    
+    justify-content: center;
 }
 .shoppinglistContainer {
     width: 181px;
@@ -253,7 +256,21 @@ body {
     position: relative;
     left: 15px;
 }
+.orangeorderbox {
+    background-color: #FCA311;
+    border-radius: 15px;
+    width: 135px;
+    height: 34px;
+    
+   
 
+    display: flex;
+    position: relative;
+    
+    align-items: center; /* centers vertically */
+    justify-content: space-between;
+    
+}
     
    
    

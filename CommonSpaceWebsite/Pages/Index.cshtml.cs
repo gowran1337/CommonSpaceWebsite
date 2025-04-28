@@ -21,11 +21,13 @@ namespace CommonSpaceWebsite.Pages
 
         public async Task OnGetAsync() //fetch data from the data base and put them in the lists above
         {
-
             CleaningTasks = await _context.CleaningTasks.ToListAsync();
             Users = await _context.Users.ToListAsync();
-
         }
+
+      
+
+
 
     }
 }
