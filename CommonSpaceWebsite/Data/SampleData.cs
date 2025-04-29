@@ -10,41 +10,48 @@ namespace CommonSpaceWebsite.Data
             // Ensure the database is created and migrations are applied
             context.Database.EnsureCreated();
 
-            // Check if database already has data
-            if (context.Users.Any() && context.CleaningTasks.Any ())
-            {
-                return; // Database already seeded
-            }
 
-            // Add sample users
-            var users = new User[]
+
+
+            if (!context.Users.Any())
             {
+
+                // Add sample users
+                var users = new User[]
+                {
                 new User { Name = "John", Password = "password123" },
                 new User { Name = "Jane", Password = "letmein" },
                 new User { Name = "Bob", Password = "securepw" }
-            };
-            context.Users.AddRange(users);
-            context.SaveChanges();
+                };
+                context.Users.AddRange(users);
+                context.SaveChanges();
+            }
 
-            // Add sample cleaning tasks
-            var tasks = new CleaningTask[]
+
+            if (!context.CleaningTasks.Any())
             {
+                // Add sample cleaning tasks
+                var tasks = new CleaningTask[]
+                {
                 new CleaningTask { Name = "Vacuum hallway"},
                 new CleaningTask { Name = "Clean kitchen" },
                 new CleaningTask { Name = "Take out trash" }
+                };
+                context.CleaningTasks.AddRange(tasks);
+                context.SaveChanges();
+            }
+
+            if (!context.ShoppingItems.Any()) { }
+            var shopitems = new ShoppingItem[]
+            {
+                new ShoppingItem { Name = "Milk"},
+                new ShoppingItem { Name = "Bread"},
+                new ShoppingItem { Name = "Eggs"}
             };
-            context.CleaningTasks.AddRange(tasks);
+
+            context.ShoppingItems.AddRange(shopitems);
             context.SaveChanges();
-
-            var shoppingitems = new ShoppingItem[]
-			{
-				new ShoppingItem { Name = "Milk"},
-				new ShoppingItem { Name = "Bread"},
-				new ShoppingItem { Name = "Eggs"}
-			};
-
-			context.ShoppingItems.AddRange(shoppingitems);
-			context.SaveChanges();
+        }
 
 
 
@@ -72,4 +79,3 @@ namespace CommonSpaceWebsite.Data
 			//}
 		}
     }
-}

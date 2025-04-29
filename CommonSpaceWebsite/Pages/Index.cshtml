@@ -109,12 +109,38 @@
 		</div>
 	</div>
 					<div class="footer-cleaning containersfooters2">
-					<button>Add</button>
+					<button onclick="toggleForm()" class="open-btn">Toggle Form</button>
 					</div>
 </div>
 
 
 </div>
+
+<div class="hidden-form">
+		<label for="popupToggle" class="close-btn">&times;</label>
+
+		<form method="post" asp-page-handler="addTaskForm">
+			<input type="text" name="TaskName" asp-for="TaskName" placeholder="enter taskname"/>
+
+
+			<input type="submit" value="Save" />
+		</form>
+
+		
+</div>
+	
+
+
+
+</>
+<script>
+		function toggleForm() {
+		const form = document.getElementById("formContainer");
+		form.classList.toggle("show");
+	}
+</script>
+
+
 
 
 

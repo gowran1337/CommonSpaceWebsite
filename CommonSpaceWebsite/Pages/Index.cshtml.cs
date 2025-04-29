@@ -14,6 +14,11 @@ namespace CommonSpaceWebsite.Pages
             _context = context;
         }
 
+
+        [BindProperty]
+        public string TaskName { get; set; } 
+
+
         public List<ShoppingItem> ShoppingItems { get; set; } = new List<ShoppingItem>(); 
 		public List<CleaningWeek> CleaningWeeks { get; set; } = new List<CleaningWeek>();
         public List<CleaningTask> CleaningTasks { get; set; } = new List<CleaningTask>();
