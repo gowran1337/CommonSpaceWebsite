@@ -316,6 +316,20 @@ body {
 
 
 
+
+.containersfooters2 {
+    position: relative;
+    top: 7px;
+    height: 47px;
+    background-color: #704545;
+    border-radius: 15px;
+    border: 1px solid black; /* Border color */
+}
+
+
+
+
+
     
    
    
