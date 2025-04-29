@@ -14,7 +14,8 @@ namespace CommonSpaceWebsite.Pages
             _context = context;
         }
 
-        public List<CleaningWeek> CleaningWeeks { get; set; } = new List<CleaningWeek>();
+        public List<ShoppingItem> ShoppingItems { get; set; } = new List<ShoppingItem>(); 
+		public List<CleaningWeek> CleaningWeeks { get; set; } = new List<CleaningWeek>();
         public List<CleaningTask> CleaningTasks { get; set; } = new List<CleaningTask>();
         public List<User> Users { get; set; } = new List<User>();
 
@@ -23,8 +24,9 @@ namespace CommonSpaceWebsite.Pages
         {
             CleaningTasks = await _context.CleaningTasks.ToListAsync();
             Users = await _context.Users.ToListAsync();
+            ShoppingItems = await _context.ShoppingItems.ToListAsync(); //gets shopping items from the database
 
-            CleaningWeeks = await _context.CleaningWeeks //gets cleaningweeks
+			CleaningWeeks = await _context.CleaningWeeks //gets cleaningweeks
                .Include(week => week.Cleaner)  //inside the cleaningweek object we also want to get the cleaner object to be able to display the name of the cleaner
                .ToListAsync();
 
@@ -43,6 +45,11 @@ namespace CommonSpaceWebsite.Pages
 
             }
         }
+
+
+
+
+
 
 
 

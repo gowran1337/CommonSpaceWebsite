@@ -100,7 +100,10 @@
 			<div class="shoppingListSection">
 					<p class="cleaningboxTitles">Items to buy</p>
 				<div class="shoppinglistContainer">
-					<p>kebab</p>
+					@foreach (var item in Model.ShoppingItems)
+                    {
+                       <p>@item.Name</p>
+                    }
 				</div>
 			</div>
 		</div>
