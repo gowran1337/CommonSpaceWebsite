@@ -12,7 +12,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Stylish&display=swap" rel="stylesheet">
 </head>
 
-
+<!--Notification system: " user: zebri added a new task to the cleaninglisttask", "goran has flagged that we are low on toiletpaper....-->
 
 <div class="topbar">
 	<div class="titlebox">
@@ -109,24 +109,24 @@
 		</div>
 	</div>
 					<div class="footer-cleaning containersfooters2">
-					<button onclick="toggleForm()" class="open-btn">Toggle Form</button>
+			<<button onclick="toggleForm()" class="open-btn">Add Task</button>
 					</div>
 </div>
 
 
 </div>
 
-<div class="hidden-form">
-		<label for="popupToggle" class="close-btn">&times;</label>
+<div id="formContainer" class="hidden-form">
+	<form method="post" asp-page-handler="addTask">
+		<input type="text" asp-for="InputTaskName" placeholder="Enter task name" />
+		<input type="submit" value="Add" />		
+	</form>
 
-		<form method="post" asp-page-handler="addTaskForm">
-			<input type="text" name="TaskName" asp-for="TaskName" placeholder="enter taskname"/>
-
-
-			<input type="submit" value="Save" />
-		</form>
-
-		
+	<form method="post" asp-page-handler="addShoppingItem">
+		<input type="text"  asp-for="ShoppingItemName" placeholder="Enter item name" />
+		<input type="submit" value="Add" />
+	</form>
+		<button type="button" onclick="toggleForm()">Close</button>
 </div>
 	
 
@@ -145,3 +145,4 @@
 
 
 
+  

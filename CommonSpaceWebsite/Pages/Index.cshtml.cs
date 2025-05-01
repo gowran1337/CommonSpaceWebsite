@@ -16,13 +16,20 @@ namespace CommonSpaceWebsite.Pages
 
 
         [BindProperty]
-        public string TaskName { get; set; } 
+        public string InputTaskName { get; set; }
 
+        [BindProperty]
+        public string ShoppingItemName { get; set; }
+
+
+
+        public CleaningTask CleaningTask { get; set; } //object to hold the task that is being created
 
         public List<ShoppingItem> ShoppingItems { get; set; } = new List<ShoppingItem>(); 
 		public List<CleaningWeek> CleaningWeeks { get; set; } = new List<CleaningWeek>();
         public List<CleaningTask> CleaningTasks { get; set; } = new List<CleaningTask>();
         public List<User> Users { get; set; } = new List<User>();
+        
 
 
         public async Task OnGetAsync() //fetch data from the data base and put them in the lists above
@@ -50,7 +57,46 @@ namespace CommonSpaceWebsite.Pages
 
             }
         }
+        public async Task<IActionResult> OnPostAddShoppingItem() //method to add a task to the database        
+            
+        {
+            if (string.IsNullOrWhiteSpace(ShoppingItemName))
+            {
+                ModelState.AddModelError("ShoppingitemName", " name cannot be empty");
+                return RedirectToPage();
+            }
 
+            var item = new ShoppingItem
+                {
+                   Name = ShoppingItemName,                
+               };
+            
+            _context.ShoppingItems.Add(item); 
+            await _context.SaveChangesAsync();
+            
+            return RedirectToPage();
+        }
+
+        public async Task<IActionResult> OnPostAddTask() //method to add a task to the database
+        {
+            if (string.IsNullOrWhiteSpace(InputTaskName))
+            {
+                ModelState.AddModelError("TaskName", "Task name cannot be empty");
+                return RedirectToPage();
+            }
+
+            var task = new CleaningTask
+            {
+                Name = InputTaskName,
+            };
+
+            _context.CleaningTasks.Add(task);
+            await _context.SaveChangesAsync();
+          
+
+
+            return RedirectToPage();
+        }
 
 
 

@@ -41,41 +41,43 @@ namespace CommonSpaceWebsite.Data
                 context.SaveChanges();
             }
 
-            if (!context.ShoppingItems.Any()) { }
-            var shopitems = new ShoppingItem[]
+            if (!context.ShoppingItems.Any())
             {
+                var shopitems = new ShoppingItem[]
+                {
                 new ShoppingItem { Name = "Milk"},
                 new ShoppingItem { Name = "Bread"},
                 new ShoppingItem { Name = "Eggs"}
-            };
+                };
 
-            context.ShoppingItems.AddRange(shopitems);
-            context.SaveChanges();
+                context.ShoppingItems.AddRange(shopitems);
+                context.SaveChanges();
+            }
+
+
+
+
+
+
+            // Add sample cleaning week
+            //var currentWeek = new CleaningWeek
+            //{
+            //    StartDate = DateTime.Today,
+            //    EndDate = DateTime.Today.AddDays(7),
+            //    Cleaner = users[0] // Assign first user as cleaner
+            //};
+            //context.CleaningWeeks.Add(currentWeek);
+            //context.SaveChanges();
+
+            // Assign tasks to the week
+            //    var weekTasks = new CleaningWeekTask[]
+            //    {
+            //        new CleaningWeekTask { WeekId = currentWeek.Id, TaskId = tasks[0].Id },
+            //        new CleaningWeekTask { WeekId = currentWeek.Id, TaskId = tasks[1].Id }
+            //    };
+            //    context.CleaningWeekTasks.AddRange(weekTasks);
+            //    context.SaveChanges();
+            //}
         }
-
-
-
-
-
-
-			// Add sample cleaning week
-			//var currentWeek = new CleaningWeek
-			//{
-			//    StartDate = DateTime.Today,
-			//    EndDate = DateTime.Today.AddDays(7),
-			//    Cleaner = users[0] // Assign first user as cleaner
-			//};
-			//context.CleaningWeeks.Add(currentWeek);
-			//context.SaveChanges();
-
-			// Assign tasks to the week
-			//    var weekTasks = new CleaningWeekTask[]
-			//    {
-			//        new CleaningWeekTask { WeekId = currentWeek.Id, TaskId = tasks[0].Id },
-			//        new CleaningWeekTask { WeekId = currentWeek.Id, TaskId = tasks[1].Id }
-			//    };
-			//    context.CleaningWeekTasks.AddRange(weekTasks);
-			//    context.SaveChanges();
-			//}
-		}
     }
+}
