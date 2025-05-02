@@ -57,9 +57,10 @@
 				<div class="currentCleaner">
 					<p id="currentcleanertext">Current Cleaner:</p>
 
-
+					
 					<p id="currentcleanerName" >@firstWeek?.Cleaner?.Name</p>	
 					<p id="currentcleanerdates">@firstWeek?.StartDate.ToString("MM/dd") - @firstWeek?.EndDate.ToString("MM/dd")</p>
+
 				</div>
 			</div>
 
@@ -68,14 +69,19 @@
 				<p class="cleaningboxTitles" id="tasksTitle">Tasks</p>
 				<div class="cleaningtasks"> <!--container for cleaning tasks (GRAY)-->
 
-					@foreach (var CleaningTask in Model.CleaningTasks)
+					<ul>
+					@foreach (var task in Model.CleaningTasks)
 					{
-						<div class="cleaningTaskContainer">
-							<input type="checkbox" class="cleaningTaskCheckbox">
-							<p id="cleaningTaskTitle">@CleaningTask.Name</p>
-						</div>
+						<li class="selectable-task" data-id="@task.Id">
+							<div class="cleaningTaskContainer">
 
+								<input type="checkbox" class="cleaningTaskCheckbox">
+								<p id="cleaningTaskTitle">@task.Name</p>
+
+							</div>
+						</li>
 					}
+					</ul>
 
 				</div>
 			</div>
@@ -100,18 +106,28 @@
 			<div class="shoppingListSection">
 					<p class="cleaningboxTitles">Items to buy</p>
 				<div class="shoppinglistContainer">
+					<ul>
 					@foreach (var item in Model.ShoppingItems)
                     {
-                       <p>@item.Name</p>
+						<li class="selectable-item" data-id="@item.Id"> <!--handler for deletion-->
+						<p>@item.Name</p>
+					    </li>
                     }
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-					<div class="footer-cleaning containersfooters2">
-			<<button onclick="toggleForm()" class="open-btn">Add Task</button>
-					</div>
-</div>
+
+	<div class="footer-cleaning containersfooters2">
+			<button onclick="toggleForm()" class="open-btn">Add Task</button>
+			<form method="post" asp-page-handler="DeleteItem">
+				<input type="hidden" id="selectedItemId" name="id" />  <!-- har inputs för ID och ITEMTYPE-->
+				<input type="hidden" id="selectedItemType" name="type" />
+				<button type="submit" id="deleteBTN">Delete</button> 
+			</form>
+		</div>
+	</div>
 
 
 </div>
@@ -132,13 +148,10 @@
 
 
 
-</>
-<script>
-		function toggleForm() {
-		const form = document.getElementById("formContainer");
-		form.classList.toggle("show");
-	}
-</script>
+
+<script src="~/js/togglemenu.js"></script>
+
+<script src="~/js/SelectForDelete.js"></script>
 
 
 

@@ -68,7 +68,7 @@ body {
     justify-content: space-between; /*lägger elementen bredvid varandra, så långt ifrån som möjligt*/
     align-items: center;
     position: relative;
-    top: 211px;
+    top: 171px;
 }
 
 .cleaning-order-shoppinglist-container {
@@ -350,7 +350,14 @@ body {
 
 
 
+.selectable-item {
+    cursor: pointer;
+    padding: 5px;
+}
 
+.selected {
+    background-color: #ffd700;
+}
     
    
    

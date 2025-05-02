@@ -1,4 +1,5 @@
 using CommonSpaceWebsite.Data;
+using CommonSpaceWebsite.Migrations;
 using CommonSpaceWebsite.Models;// only runs method "AssignWeeksToUsersLoop" if there are no weeks in the database
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -23,7 +24,6 @@ namespace CommonSpaceWebsite.Pages
 
 
 
-        public CleaningTask CleaningTask { get; set; } //object to hold the task that is being created
 
         public List<ShoppingItem> ShoppingItems { get; set; } = new List<ShoppingItem>(); 
 		public List<CleaningWeek> CleaningWeeks { get; set; } = new List<CleaningWeek>();
@@ -60,6 +60,7 @@ namespace CommonSpaceWebsite.Pages
         public async Task<IActionResult> OnPostAddShoppingItem() //method to add a task to the database        
             
         {
+            Console.WriteLine("abdi"); // Debugging line to check the value of ShoppingItemName
             if (string.IsNullOrWhiteSpace(ShoppingItemName))
             {
                 ModelState.AddModelError("ShoppingitemName", " name cannot be empty");
@@ -98,6 +99,31 @@ namespace CommonSpaceWebsite.Pages
             return RedirectToPage();
         }
 
+
+        public async Task<IActionResult> OnPostDeleteItem(int id, string itemType)
+        {
+
+             if (itemType == "shoppingItem")
+            {
+                var item = await _context.ShoppingItems.FindAsync(id);
+                if (item != null)
+                {
+                    _context.ShoppingItems.Remove(item);
+                }
+            }
+      
+            else if (itemType == "task")
+            {
+                var task = await _context.CleaningTasks.FindAsync(id);
+                if (task != null)
+                {
+                    _context.CleaningTasks.Remove(task);
+                    
+                }                
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToPage();
+        }
 
 
 
