@@ -119,33 +119,44 @@
 		</div>
 	</div>
 
-	<div class="footer-cleaning containersfooters2">
-			<button onclick="toggleForm()" class="open-btn">Add Task</button>
+	<div id="formContainer" class="hidden-form">
+
+			<div class="popupHeaderAdd">
+			<p id="tasktitlepopup" class="headerpopuptitles">Task</p>
+			<p id="shoppingitemtitlepopup" class="headerpopuptitles">Shopping Item</p>
+
+			</div>
+
+		<div class="popupGrid">
+
+			<form method="post" id="addTaskForm" asp-page-handler="addTask">
+			<input class="addItemInput"  type="text" asp-for="InputTaskName" placeholder="Enter task name" />
+			</form>
+
+			<form method="post" id="addItemForm" asp-page-handler="addShoppingItem">
+			<input class="addItemInput" type="text" asp-for="ShoppingItemName" placeholder="Enter item name" />
+			</form>
+			<input class="saveAddItem" type="submit" form="addTaskForm" value="Add" />
+			<input class="saveAddItem" type="submit" form="addItemForm" value="Add" />
+
+		</div>
+				
+	</div>
+
+
+		<div id="footercleaning" class="containersfooters2">
 			<form method="post" asp-page-handler="DeleteItem">
 				<input type="hidden" id="selectedItemId" name="id" />  <!-- har inputs för ID och ITEMTYPE-->
-				<input type="hidden" id="selectedItemType" name="type" />
-				<button type="submit" id="deleteBTN">Delete</button> 
+				<input type="hidden" id="selectedItemType" name="itemType" />
+				
+				<button class="footerBTN" type="submit" id="deleteBTN">Delete</button> 
 			</form>
+				<button onclick="togglePopup()" id="popupToggleBtn" class="open-btn">Add Task</button>
 		</div>
 	</div>
 
 
 </div>
-
-<div id="formContainer" class="hidden-form">
-	<form method="post" asp-page-handler="addTask">
-		<input type="text" asp-for="InputTaskName" placeholder="Enter task name" />
-		<input type="submit" value="Add" />		
-	</form>
-
-	<form method="post" asp-page-handler="addShoppingItem">
-		<input type="text"  asp-for="ShoppingItemName" placeholder="Enter item name" />
-		<input type="submit" value="Add" />
-	</form>
-		<button type="button" onclick="toggleForm()">Close</button>
-</div>
-	
-
 
 
 

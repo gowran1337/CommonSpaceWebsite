@@ -12,7 +12,7 @@ body {
     justify-content: space-between; /*lägger elementen bredvid varandra, så långt ifrån som möjligt*/
     align-items: center;
     position: relative;
-    top: 45px;
+    top: 25px;
 }
 .titlebox {
     display: flex;
@@ -68,7 +68,7 @@ body {
     justify-content: space-between; /*lägger elementen bredvid varandra, så långt ifrån som möjligt*/
     align-items: center;
     position: relative;
-    top: 171px;
+    top: 109px;
 }
 
 .cleaning-order-shoppinglist-container {
@@ -136,6 +136,7 @@ body {
 .bulletin-cleaning-section {
     display: flex;
     flex-direction: column;
+    
 }
 
 .cleaningtasks {
@@ -188,6 +189,12 @@ body {
     grid-column: 2;
     grid-row: 2/ 4;
 
+}
+
+.cleaningtasks ul,
+.shoppinglistContainer ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .cleaningTaskContainer {
@@ -327,27 +334,42 @@ body {
 }
 
 
-
+#footercleaning.moved {
+    position: relative;
+    top:150px;
+    left: 0;
+}
 
 
 
 
 .hidden-form {
     display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 482px;
+    height: 140px;
+    position: absolute;
+    top: 620px;
+    border: 1px solid black; /* Border color */
+
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 1000;
+    background-color: #E6C2AF;
+    border-radius: 15px;
+    z-index: auto;
 }
 
     .hidden-form.show {
         display: block;
     }
 
+.popupHeaderAdd {
+    height: 38px;
+    background-color: #FCA311;
+    border-radius: 15px 15px 0 0;
+    justify-content: space-between;
+    align-content: center;
+    display: flex;
+    border-bottom: 1px solid black; /* Border color */
+}
 
 
 .selectable-item {
@@ -358,6 +380,54 @@ body {
 .selected {
     background-color: #ffd700;
 }
-    
+
+.headerpopuptitles {
+    background-color: #513C2C;
+    color: white;
+    border-radius: 15px;
+    width: 154px;
+
+    height: 29px;
+    font-size: 30px;
+    text-align: center;
+    margin: 0 auto; /* centrerar boxen */
+
+    position: relative;
+    top: 3px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+#shoppingitemtitlepopup {
+    font-size: 20px;
+}
+
+.popupGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-template-rows: auto 1fr 1fr; /* Two equal rows */
+    gap: 10px; /* Space between grid items */
+    margin: 10px; /* Even padding on all sides */
+}
+
+.addItemInput {
+    border-radius: 15px;
+    position: relative;
+    height: 30px;
+    left: 20px;
+    width: 190px;
+    border: none;
+    padding-left: 10px;
+}
+.saveAddItem {
+    height: 40px;
+    width: 134px;
+    position: relative;
+    left: 44px;
+    background-color: #41802A;
+    border: none;
+    border-radius: 15px;
+    font-size: 25px;
+}
    
    
