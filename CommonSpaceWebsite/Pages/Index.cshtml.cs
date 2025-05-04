@@ -22,6 +22,12 @@ namespace CommonSpaceWebsite.Pages
         [BindProperty]
         public string ShoppingItemName { get; set; }
 
+        [BindProperty]
+        public string InputUserName { get; set; }
+
+        [BindProperty]
+        public string InputUserPassword { get; set; }
+
 
 
 

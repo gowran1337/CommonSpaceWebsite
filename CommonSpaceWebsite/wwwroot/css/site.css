@@ -50,17 +50,75 @@ body {
     border: 1px solid black; /* Border color */
 
     gap: 65px; /* Space between items */
+
+    
 }
+
+.registerform {
+    width: 400px;
+    height: 132px;
+    border: 1px solid black; /* Border color */
+
+    position: relative;
+    left: 35px;
+    background-color: #704545;
+}
+
+.registerGray {
+    background-color: #8499B1;
+    border-radius: 15px;
+    width: 380px;
+    height: 104px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+    align-content: center;
+    padding: 10px; /* Even padding on all sides */
+}
+.registerOrangeBox {
+    background-color: #FCA311;
+    border-radius: 15px;
+    width: 123px;
+    height: 28px;
+    text-align: center;
+    font-size: 18px;
+    margin: 3px;
+}
+.inputBoxRegister {
+    
+   
+    width: 202px;
+    height: 23px;
+    
+    font-size: 18px;
+    
+}
+
+#createAccountBTN {
+    width: 250px;
+    height: 22px;
+    border-radius: 15px;
+    background-color: #41802A;
+    border: none;
+    font-size: 18px;
+    display: flex;
+    text-align: center; /* these 4 lines is for centering text inside the button*/
+    position: relative;
+    left: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
 .btn {
     width: 165px;
     height: 38px;
     border-radius: 38px;
     background-color: #E6C2AF;
     font-size: 24px;
-
     display: flex;
     text-align: center; /* these 4 lines is for centering text inside the button*/
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
 }
 .containers2 {
@@ -159,7 +217,8 @@ body {
     height: 189px;
     border-radius: 15px;
     background-color: #8499B1;
-    margin: 5px; 
+    margin: 5px;
+    padding: 1px; /* Even padding on all sides */
 }
 
 .orangeHeader {
@@ -319,7 +378,24 @@ body {
 
 }
 
+#shoppingListItem_Item {
+    background-color: #FCA311;
+    border-radius: 15px;
+    width: 145px;
+    height: 22px;
+    margin: 10px; /* Even padding on all sides */
+    display: flex;
+    padding: 1.1px;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative;
+    left: 9px;
+}
 
+.shoppinglistContainer ul li {
+    margin: 0px 0; /* Reduced from default */
+    padding: 0px 0; /* Reduced from default */
+}
 
 
 
@@ -338,6 +414,14 @@ body {
     position: relative;
     top:150px;
     left: 0;
+}
+#footercleaning {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
+    gap:50px; /* Space between items */
 }
 
 
@@ -378,7 +462,7 @@ body {
 }
 
 .selected {
-    background-color: #ffd700;
+    background-color: #d12525
 }
 
 .headerpopuptitles {
@@ -428,6 +512,17 @@ body {
     border: none;
     border-radius: 15px;
     font-size: 25px;
+}
+
+.footerBTN {
+    width: 76px;
+    height: 29px;
+    border-radius: 15px;
+    border: none;
+
+    background-color: #E6C2AF;
+    position: relative;
+    right: 30px;
 }
    
    

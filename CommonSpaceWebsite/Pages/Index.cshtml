@@ -23,10 +23,34 @@
 
 	</div> 
 
+	<div class="loginSection">
 	<div class="regloginbar">
 		<button class="btn">Login</button>
 		<button class="btn">Register</button>
 	</div>
+	<div class="registerform">
+		<div class="registerGray">
+		<form method="post" asp-page-handler="registerUser">
+
+		<div class="usernameRow">
+			<label class="registerOrangeBox" for="InputUserName">Username</label>
+			<input class ="inputBoxRegister" type="text" name="username" asp-for="InputUserName" placeholder="Username" required />
+		</div>
+
+		<div class="passwordRow">
+			<label class ="registerOrangeBox" for="InputUserPassword">Password</label>
+			<input class="inputBoxRegister" type="password" name="password" asp-for="InputUserPassword" placeholder="Password" required />
+		</div>
+			<button id="createAccountBTN" type="submit">Create account</button>
+			
+		</form>
+		</div>
+
+	</div>
+
+
+	</div>
+
 </div>
 
 <div class="containers2">
@@ -109,9 +133,13 @@
 					<ul>
 					@foreach (var item in Model.ShoppingItems)
                     {
+						
 						<li class="selectable-item" data-id="@item.Id"> <!--handler for deletion-->
-						<p>@item.Name</p>
+						
+						<p id="shoppingListItem_Item">@item.Name</p>
+						
 					    </li>
+						
                     }
 					</ul>
 				</div>
@@ -145,13 +173,14 @@
 
 
 		<div id="footercleaning" class="containersfooters2">
-			<form method="post" asp-page-handler="DeleteItem">
+			<form method="post" id="deleteButton1" asp-page-handler="DeleteItem">
 				<input type="hidden" id="selectedItemId" name="id" />  <!-- har inputs för ID och ITEMTYPE-->
 				<input type="hidden" id="selectedItemType" name="itemType" />
 				
-				<button class="footerBTN" type="submit" id="deleteBTN">Delete</button> 
 			</form>
-				<button onclick="togglePopup()" id="popupToggleBtn" class="open-btn">Add Task</button>
+				<button class="footerBTN" form="deleteButton1" type="submit" id="deleteBTN">Delete</button>
+				<button class="footerBTN">Edit</button>
+				<button onclick="togglePopup()" id="popupToggleBtn" class="open-btn footerBTN">Add Task</button>
 		</div>
 	</div>
 
