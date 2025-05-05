@@ -1,9 +1,10 @@
 ﻿@page
+@inject IHttpContextAccessor HttpContextAccessor
 @model IndexModel
 @{
 	ViewData["Title"] = "Home page";
 	var firstWeek = Model.CleaningWeeks.FirstOrDefault();
-
+	var username = HttpContextAccessor.HttpContext.Session.GetString("username");
 
 }
 <head>
@@ -23,23 +24,51 @@
 
 	</div> 
 
-	<div class="loginSection">
+
+	@if (!string.IsNullOrEmpty(username))
+	{
+		<h2 id="usernameDisplay">Welcome, @username!</h2>
+	}
+	<div class="loginSection" id="loginSection">
 	<div class="regloginbar">
-		<button class="btn">Login</button>
-		<button class="btn">Register</button>
+		<button id="loginBTN" onclick="toggleLoginPopUp()" class="btn">Login</button>
+		<button id="registerBTN" onclick="toggleRegisterPopUp()" class="btn">Register</button>
 	</div>
-	<div class="registerform">
+
+
+		<div id="loginForm">
+			<div class="registerGray">
+				<form method="post" asp-page-handler="LoginUser">
+
+					<div class="usernameRow">
+						<label class="registerOrangeBox" for="InputUserName">Username</label>
+						<input class="inputBoxRegister" type="text" asp-for="InputUserName" placeholder="Username" required />
+					</div>
+
+					<div class="passwordRow">
+						<label class="registerOrangeBox" for="InputUserPassword">Password</label>
+						<input class="inputBoxRegister" type="password" asp-for="InputUserPassword" placeholder="Password" required />
+					</div>
+					<button id="createAccountBTN" type="submit">Login</button>
+
+				</form>
+			</div>
+
+		</div>
+
+
+	<div id="registerForm">
 		<div class="registerGray">
-		<form method="post" asp-page-handler="registerUser">
+		<form method="post" asp-page-handler="RegisterUser">
 
 		<div class="usernameRow">
 			<label class="registerOrangeBox" for="InputUserName">Username</label>
-			<input class ="inputBoxRegister" type="text" name="username" asp-for="InputUserName" placeholder="Username" required />
+			<input class ="inputBoxRegister" type="text" asp-for="InputUserName" placeholder="Username" required />
 		</div>
 
 		<div class="passwordRow">
 			<label class ="registerOrangeBox" for="InputUserPassword">Password</label>
-			<input class="inputBoxRegister" type="password" name="password" asp-for="InputUserPassword" placeholder="Password" required />
+			<input class="inputBoxRegister" type="password" asp-for="InputUserPassword" placeholder="Password" required />
 		</div>
 			<button id="createAccountBTN" type="submit">Create account</button>
 			
@@ -58,12 +87,18 @@
 	<div class="bulletin-cleaning-section">
 		<p id="bulletinTitle">Bulletin Board</p>
 
-		<div class="bulletinboardcontainer">
-
+		<div class="whiteboard-container">
+			
+			<canvas id="drawing-board" width="639" height="572"></canvas>
 		</div>
 
 		<div class="footer-bulletin containersfooters2">
-			<p>abdi</p>
+			<button id="pen-tool" class="active">Pen</button>
+			<button id="eraser-tool">Eraser</button>
+			<input type="color" id="color-picker" value="#000000">
+			<input type="range" id="brush-size" min="1" max="50" value="5">
+			<button id="clear-board">Clear</button>
+			<button id="save-board">Save</button>
 		</div>
 	</div>
 
@@ -186,9 +221,8 @@
 
 
 </div>
-
-
-
+<script src="~/js/canvas.js"></script>
+<script src="~/js/loginMenu.js"></script>
 <script src="~/js/togglemenu.js"></script>
 
 <script src="~/js/SelectForDelete.js"></script>

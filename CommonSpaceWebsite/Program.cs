@@ -5,6 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSession(); // Add this
+builder.Services.AddHttpContextAccessor(); // Add this
 
 builder.Services.AddDbContext<CommonSpaceDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("ComSpaceDB"))
@@ -33,6 +35,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapRazorPages();
 

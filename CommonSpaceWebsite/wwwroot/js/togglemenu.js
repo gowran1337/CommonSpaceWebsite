@@ -3,6 +3,9 @@
 	const footer = document.getElementById("footercleaning");
 	const button = document.getElementById("popupToggleBtn");
 
+
+
+
 	if (form.classList.contains("show")) {
 		// Close the menu
 		form.classList.remove("show");

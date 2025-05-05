@@ -54,7 +54,58 @@ body {
     
 }
 
-.registerform {
+#usernameDisplay {
+    color: white;
+    position: relative;
+    left: 150px;
+}
+
+#loginForm {
+    display: none
+}
+
+    #loginForm.show {
+        display: block;
+        width: 400px;
+        height: 132px;
+        border: 1px solid black; /* Border color */
+
+        position: relative;
+        left: 35px;
+        background-color: #704545;
+        z-index: 1000;
+    }
+
+#loginBTN.active {
+    background-color: #41802A;
+}
+
+
+
+.toolbar {
+    background: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.toolbar button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+     border-radius: 4px;
+   background: white;
+ }
+ .toolbar button.active {
+    background: #ddd;
+    }
+
+#registerForm {
+   display:none
+}
+
+#registerForm.show {
+    display: block;
     width: 400px;
     height: 132px;
     border: 1px solid black; /* Border color */
@@ -62,6 +113,7 @@ body {
     position: relative;
     left: 35px;
     background-color: #704545;
+    z-index:1000;
 }
 
 .registerGray {
@@ -76,6 +128,10 @@ body {
     align-content: center;
     padding: 10px; /* Even padding on all sides */
 }
+#registerBTN.active {
+    background-color: #41802A;
+}
+
 .registerOrangeBox {
     background-color: #FCA311;
     border-radius: 15px;
@@ -121,6 +177,8 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
 .containers2 {
     display: flex;
     justify-content: space-between; /*lägger elementen bredvid varandra, så långt ifrån som möjligt*/
@@ -146,11 +204,20 @@ body {
     gap: 10px; /* Space between grid items */
 }
 
-.bulletinboardcontainer {
+#drawing-board {
+    display: block;
+    background-color: #E6C2AF; /* Fallback background */
+    width: 100%;
+    height: 100%;
+    
+}
+.whiteboard-container {
     width: 639px;
     height: 572px;
     border-radius: 15px;
     background-color: #E6C2AF;
+    border: 1px solid black; /* Border color */
+    overflow: hidden; /* Ensures canvas stays within container */
 }
 #cleaningTitle {
     background-color: #704545;

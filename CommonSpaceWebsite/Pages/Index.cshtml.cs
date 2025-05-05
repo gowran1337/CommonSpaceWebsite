@@ -63,6 +63,41 @@ namespace CommonSpaceWebsite.Pages
 
             }
         }
+
+        public async Task<IActionResult> OnPostLoginUser()
+        {
+            if (string.IsNullOrWhiteSpace(InputUserName) || string.IsNullOrWhiteSpace(InputUserPassword))
+            {
+                ModelState.AddModelError("UserName", "Username and password cannot be empty");
+                return RedirectToPage();
+            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Name == InputUserName && u.Password == InputUserPassword);
+            HttpContext.Session.SetString("username", InputUserName);
+            if (user == null)
+            {
+                ModelState.AddModelError("UserName", "Invalid username or password");
+                return RedirectToPage();
+            }
+            // User is authenticated, redirect to a different page or perform other actions
+            return RedirectToPage(); // Example: redirect to a dashboard page
+        }
+
+        public async Task<IActionResult> OnPostRegisterUser()
+        {
+            if (string.IsNullOrWhiteSpace(InputUserName) || string.IsNullOrWhiteSpace(InputUserPassword))
+            {
+                ModelState.AddModelError("UserName", "Username and password cannot be empty");
+                return RedirectToPage();
+            }
+            var user = new User
+            {
+                Name = InputUserName,
+                Password = InputUserPassword,
+            };
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+            return RedirectToPage();
+        }
         public async Task<IActionResult> OnPostAddShoppingItem() //method to add a task to the database        
             
         {
